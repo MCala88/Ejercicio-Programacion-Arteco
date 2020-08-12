@@ -8,6 +8,14 @@ public class App {
 		
 		 System.out.println("\n" + "Cantidad de frases, palabras y parrafos del texto" + "\n" + 
                  "==============================================="        );
+		 
+		 
+		 
+		 Lipsum lip = new Lipsum();
+		 Contador contar = new Contador();
+		 String palabras = lip.getLipsum();
+		 
+		 System.out.println("\n Cantidad de palabras: \n" +  contar.palabra(palabras));
 	}
 
 }
