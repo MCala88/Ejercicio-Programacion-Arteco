@@ -2,5 +2,5 @@ package arteco;
 
 public interface Texto {
 
-	public void text(Lipsum enunciado);
+	public String text(Lipsum enunciado);
 }
