@@ -14,6 +14,7 @@ public class ArtecoTest {
 	String[] txt = contar.separarPalabras(texto);
 	List<String> palindromas = contar.palindromo(txt);
 	HashMap<String, Integer> palabrasRepetidas = contar.totalPalabrasRepetidas(txt);
+	HashMap<String, Integer> tuplas = contar.tuplas(txt);
 	
 	//Primer punto
 	@Test
@@ -43,9 +44,15 @@ public class ArtecoTest {
 	//Tercer punto
 		@Test
 		public void palabras_repetidas_test() {
-			assertEquals("{at=11, ipsum=7, et=7, blandit=7, sit=7}", contar.palabrasMasRepetidas(palabrasRepetidas).toString());
-			
+			assertEquals("{at=13, sed=11, lorem=10, orci=10, in=9}", contar.palabrasMasRepetidas(palabrasRepetidas).toString());
 		}
+		
+	
+	//Cuarto punto
+			@Test
+			public void tuplas_repetidas_test() {
+				assertEquals("{sit amet=7, consectetur adipiscing=3, adipiscing elit=3, ipsum dolor=3, dolor sit=3}", contar.tuplasMasRepetidas(tuplas).toString());		
+			}
 		
 	
 	
