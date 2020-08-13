@@ -1,5 +1,6 @@
 package arteco;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class App {
@@ -18,6 +19,7 @@ public class App {
 		 String texto = lip.getLipsum();
 		 String[] txt = contar.separarPalabras(texto);
 		 List<String> palindromas = contar.palindromo(txt);
+		 HashMap<String, Integer> palabrasRepetidas = contar.totalPalabrasRepetidas(txt);
 		 
 		
 		 System.out.println("\n Cantidad de frases: \n " +  contar.frases(texto) + " frases");
@@ -28,12 +30,16 @@ public class App {
 		 System.out.println("\n" + "Palindromos" + "\n" + 
                  "==============================================="        );
 		 
-		 //System.out.println("\n Cantidad de palindromos: \n " +  contar. + " parrafos");
+	
 		 System.out.println("\n Cantidad de palindromos: \n "  + contar.contarPalindromas(palindromas) + " palindromos: \n" + " " +  contar.palindromo(txt));
 		 
 		
+		 
+		 
+		 System.out.println("\n" + "5 palabras mas repetidas" + "\n" + 
+                 "==============================================="        );
 	
-	
+		 System.out.println("\n Palabras que mas aparecen: \n "  + contar.palabrasMasRepetidas(palabrasRepetidas));
 	
 	
 	}
