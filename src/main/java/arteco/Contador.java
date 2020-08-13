@@ -2,17 +2,33 @@ package arteco;
 
 public class Contador implements Texto{
 
-	
-	public int palabra(String palabras) {
+	public int frases(String texto) {
 		int contador = 1, posicion;
-	    palabras= palabras.trim();                               
-	    if (palabras.isEmpty()) { 
+		texto= texto.trim();                               
+	    if (texto.isEmpty()) { 
 	        contador = 0;
 	    } else {
-	            posicion = palabras.indexOf(" "); 
+	    	posicion = texto.indexOf(". "); 
+            while (posicion != -1) {   
+                   contador++;    
+                   posicion = texto.indexOf(". ", posicion + 1); 
+            }
+	    }
+	    
+		return contador;
+	}
+	
+	
+	public int palabras(String texto) {
+		int contador = 1, posicion;
+	    texto= texto.trim();                               
+	    if (texto.isEmpty()) { 
+	        contador = 0;
+	    } else {
+	            posicion = texto.indexOf(" "); 
 	            while (posicion != -1) {   
 	                   contador++;    
-	                   posicion = palabras.indexOf(" ", posicion + 1); 
+	                   posicion = texto.indexOf(" ", posicion + 1); 
 	            }                                     
 	    }
 	    return contador;
@@ -22,8 +38,8 @@ public class Contador implements Texto{
 	@Override
 	public String text(Lipsum enunciado) {
 		// TODO Auto-generated method stub
-		String palabras = enunciado.getLipsum();
-		return palabras;
+		String texto = enunciado.getLipsum();
+		return texto;
 	}
 
 }
