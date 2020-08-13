@@ -3,16 +3,12 @@ package arteco;
 import java.util.HashMap;
 import java.util.List;
 
+import arteco.domain.Contador;
+import arteco.domain.Lipsum;
+
 public class App {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		
-		 System.out.println("\n" + "Cantidad de frases, palabras y parrafos del texto" + "\n" + 
-                 "==============================================="        );
-		 
-		 
+	public static void main(String[] args) { 
 		 
 		 Lipsum lip = new Lipsum();
 		 Contador contar = new Contador();
@@ -20,6 +16,10 @@ public class App {
 		 String[] txt = contar.separarPalabras(texto);
 		 List<String> palindromas = contar.palindromo(txt);
 		 HashMap<String, Integer> palabrasRepetidas = contar.totalPalabrasRepetidas(txt);
+		
+		
+		 System.out.println("\n" + "Cantidad de frases, palabras y parrafos del texto" + "\n" + 
+                 "==============================================="        );
 		 
 		
 		 System.out.println("\n Cantidad de frases: \n " +  contar.frases(texto) + " frases");
@@ -39,9 +39,10 @@ public class App {
 		 System.out.println("\n" + "5 palabras mas repetidas" + "\n" + 
                  "==============================================="        );
 	
-		 System.out.println("\n Palabras que mas aparecen: \n "  + contar.palabrasMasRepetidas(palabrasRepetidas));
+		 System.out.println("\n 5 palabras que mas aparecen: \n "  + contar.palabrasMasRepetidas(palabrasRepetidas));
 	
 	
+		
 	}
 
 }
