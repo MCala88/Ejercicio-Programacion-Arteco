@@ -130,7 +130,8 @@ public class Contador implements Texto{
 
 	
 	/*Tomamos el HashMap del anterior metodo y creamos un mapa en el que meteremos el resultado del metodo
-	 *Con una stream ordenamos el contenido de las palabras repetidas en orden descendiente en base a su valor y lo militamos a 5
+	 *Con una stream ordenamos el contenido de las palabras repetidas en orden descendiente en base a su valor 
+	 *Lo limitamos a 5 y lo devolvemos en LinkedHashMap para que lo devuelva ordenado
 	 */
 	public HashMap<String, Integer> palabrasMasRepetidas(HashMap<String, Integer> palabrasRepetidas) {
 		final HashMap<String, Integer> cincoPalabras = palabrasRepetidas.entrySet()
@@ -144,7 +145,8 @@ public class Contador implements Texto{
 	
 	
 	/*Para encontrar las tuplas que mas se repiten hacemos algo muy parecido a las palabras
-	 *en este caso creamos una String que es la palabraAnterior en la que al finalizar el bucle la palabra que se estaba usando se guardara en esta variable
+	 *en este caso creamos una String que es la palabraAnterior en la que al finalizar 
+	 *el bucle la palabra que se estaba usando se guardara en esta variable
 	 *Para que sean tuplas se concatena la palabra actual y se junta con la anterior
 	 */
 	public HashMap<String, Integer> tuplas(String[] txt) {
