@@ -1,7 +1,10 @@
 package arteco;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 
@@ -84,7 +87,28 @@ public class Contador implements Texto{
 		return palindromas.size();
 	}
 	
+	public HashMap<String, Integer> totalPalabrasRepetidas(String[] txt) {
+		HashMap<String, Integer> palabrasRepetidas = new HashMap<>();
+		for (String palabra : txt) {
+		    if (palabrasRepetidas.containsKey(palabra)) {
+		        palabrasRepetidas.put(palabra, palabrasRepetidas.get(palabra) + 1);
+		    } else {
+		        palabrasRepetidas.put(palabra, 1);
+		    }
+		}
+		return palabrasRepetidas;
+	}
 
+	
+	public HashMap<String, Integer> palabrasMasRepetidas(HashMap<String, Integer> palabrasRepetidas) {
+		final HashMap<String, Integer> orden = palabrasRepetidas.entrySet()
+                .stream()
+                .sorted((HashMap.Entry.<String, Integer>comparingByValue().reversed()))
+                .limit(5)
+                .collect(Collectors.toMap(HashMap.Entry::getKey, HashMap.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+		return orden;
+	}
+	
 	
 	@Override
 	public String text(Lipsum enunciado) {
