@@ -1,5 +1,7 @@
 package arteco;
 
+import java.util.List;
+
 public class App {
 
 	public static void main(String[] args) {
@@ -14,10 +16,26 @@ public class App {
 		 Lipsum lip = new Lipsum();
 		 Contador contar = new Contador();
 		 String texto = lip.getLipsum();
+		 String[] txt = contar.separarPalabras(texto);
+		 List<String> palindromas = contar.palindromo(txt);
 		 
+		
 		 System.out.println("\n Cantidad de frases: \n " +  contar.frases(texto) + " frases");
 		 System.out.println("\n Cantidad de palabras: \n " +  contar.palabras(texto) + " palabras");
 		 System.out.println("\n Cantidad de parrafos: \n " +  contar.parrafos(texto) + " parrafos");
+	
+	
+		 System.out.println("\n" + "Palindromos" + "\n" + 
+                 "==============================================="        );
+		 
+		 //System.out.println("\n Cantidad de palindromos: \n " +  contar. + " parrafos");
+		 System.out.println("\n Cantidad de palindromos: \n "  + contar.contarPalindromas(palindromas) + " palindromos: \n" + " " +  contar.palindromo(txt));
+		 
+		
+	
+	
+	
+	
 	}
 
 }
