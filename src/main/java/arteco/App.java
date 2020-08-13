@@ -16,6 +16,7 @@ public class App {
 		 String[] txt = contar.separarPalabras(texto);
 		 List<String> palindromas = contar.palindromo(txt);
 		 HashMap<String, Integer> palabrasRepetidas = contar.totalPalabrasRepetidas(txt);
+		 HashMap<String, Integer> tuplas = contar.tuplas(txt);
 		
 		
 		 System.out.println("\n" + "Cantidad de frases, palabras y parrafos del texto" + "\n" + 
@@ -42,7 +43,11 @@ public class App {
 		 System.out.println("\n 5 palabras que mas aparecen: \n "  + contar.palabrasMasRepetidas(palabrasRepetidas));
 	
 	
-		
+		 System.out.println("\n" + "5 tuplas mas repetidas" + "\n" + 
+                 "==============================================="        );
+		 
+		 System.out.println("\n 5 tuplas que mas aparecen: \n "  + contar.tuplasMasRepetidas(tuplas));
+	
 	}
 
 }
