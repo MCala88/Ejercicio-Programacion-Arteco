@@ -34,6 +34,23 @@ public class Contador implements Texto{
 	    return contador;
 		
 	}
+	
+	public int parrafos(String texto) {
+		int contador = 1, posicion;
+		texto= texto.trim();                               
+	    if (texto.isEmpty()) { 
+	        contador = 0;
+	    } else {
+	    	posicion = texto.indexOf("\r\n"); 
+            while (posicion != -1) {   
+                   contador++;    
+                   posicion = texto.indexOf("\r\n" + "\r\n", posicion + 1); 
+            }
+	    }
+	    
+		return contador;
+	}
+	
 
 	@Override
 	public String text(Lipsum enunciado) {
