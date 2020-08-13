@@ -1,5 +1,10 @@
 package arteco;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 public class Contador implements Texto{
 
 	public int frases(String texto) {
@@ -51,12 +56,41 @@ public class Contador implements Texto{
 		return contador;
 	}
 	
+	public String[] separarPalabras(String texto) {
+		String[] txt = texto.split(" ");
+			return txt;
+		}
+		
+	
+	public List<String> palindromo(String[] txt) {
+		List<String> palindromas = new ArrayList<String>();
+		for(String palabra : txt) {
+			palabra = palabra.toLowerCase();
+			 String invertida = new StringBuilder(palabra).reverse().toString();
+			 if (invertida.equals(palabra)) {
+				 if(palabra.length() > 1) {
+					 palindromas.add(palabra); 
+				 }
+				  
+			 } else { 
+				 
+			 }
+		}
+		return palindromas;
+		
+	}
+	
+	public int contarPalindromas(List<String> palindromas) {
+		return palindromas.size();
+	}
+	
 
+	
 	@Override
 	public String text(Lipsum enunciado) {
-		// TODO Auto-generated method stub
 		String texto = enunciado.getLipsum();
 		return texto;
 	}
 
+	
 }
