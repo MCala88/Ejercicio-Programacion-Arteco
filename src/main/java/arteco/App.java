@@ -13,9 +13,11 @@ public class App {
 		 
 		 Lipsum lip = new Lipsum();
 		 Contador contar = new Contador();
-		 String palabras = lip.getLipsum();
+		 String texto = lip.getLipsum();
 		 
-		 System.out.println("\n Cantidad de palabras: \n" +  contar.palabra(palabras));
+		 System.out.println("\n Cantidad de frases: \n " +  contar.frases(texto) + " frases");
+		 System.out.println("\n Cantidad de palabras: \n " +  contar.palabras(texto) + " palabras");
+		 System.out.println("\n Cantidad de parrafos: \n " +  contar.parrafos(texto) + " parrafos");
 	}
 
 }
