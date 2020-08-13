@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 
@@ -78,6 +79,7 @@ public class Contador implements Texto{
 	 *porque necesiamos tener acceso a las palabras de manera aislada
 	 */
 	public String[] separarPalabras(String texto) {
+		texto = texto.replaceAll("[.,:;?!]", "").toLowerCase();
 		String[] txt = texto.split(" ");
 			return txt;
 		}
@@ -131,12 +133,50 @@ public class Contador implements Texto{
 	 *Con una stream ordenamos el contenido de las palabras repetidas en orden descendiente en base a su valor y lo militamos a 5
 	 */
 	public HashMap<String, Integer> palabrasMasRepetidas(HashMap<String, Integer> palabrasRepetidas) {
-		final HashMap<String, Integer> orden = palabrasRepetidas.entrySet()
+		final HashMap<String, Integer> cincoPalabras = palabrasRepetidas.entrySet()
                 .stream()
                 .sorted((HashMap.Entry.<String, Integer>comparingByValue().reversed()))
                 .limit(5)
                 .collect(Collectors.toMap(HashMap.Entry::getKey, HashMap.Entry::getValue, (k, v) -> v, LinkedHashMap::new));
-		return orden;
+		return cincoPalabras;
+	}
+	
+	
+	
+	/*Para encontrar las tuplas que mas se repiten hacemos algo muy parecido a las palabras
+	 *en este caso creamos una String que es la palabraAnterior en la que al finalizar el bucle la palabra que se estaba usando se guardara en esta variable
+	 *Para que sean tuplas se concatena la palabra actual y se junta con la anterior
+	 */
+	public HashMap<String, Integer> tuplas(String[] txt) {
+		HashMap<String, Integer> tuplas = new HashMap<>();
+		String palabraAnterior = "";
+		
+		
+		for (String palabra : txt) {
+			if (palabraAnterior != "") {
+				String tuplaRepetida = palabraAnterior.concat(" ").concat(palabra);
+				if (tuplas.containsKey(tuplaRepetida)) {
+					tuplas.put(tuplaRepetida, tuplas.get(tuplaRepetida) + 1);
+				} else {
+					tuplas.put(tuplaRepetida, 1);
+				}
+			}
+			palabraAnterior = palabra;
+		}
+		return tuplas;
+	}
+	
+		
+	/*Tomamos el HashMap del anterior metodo y creamos un mapa en el que meteremos el resultado del metodo
+	 *Con una stream ordenamos el contenido de las palabras repetidas en orden descendiente en base a su valor y lo militamos a 5
+	 */
+	public HashMap<String, Integer> tuplasMasRepetidas(HashMap<String, Integer> tuplas) {
+		final HashMap<String, Integer> cincoTuplas = tuplas.entrySet()
+                .stream()
+                .sorted((HashMap.Entry.<String, Integer>comparingByValue().reversed()))
+                .limit(5)
+                .collect(Collectors.toMap(HashMap.Entry::getKey, HashMap.Entry::getValue, (k, v) -> v, LinkedHashMap::new));
+		return cincoTuplas;
 	}
 	
 	
